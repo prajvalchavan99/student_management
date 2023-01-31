@@ -2,9 +2,20 @@ import React from "react";
 
 class Dashboard extends React.Component{
     constructor(props){
+        const [name, setName] = React.useState('');
+        const [password, setName] = React.useState('');
+        const [name, setName] = React.useState('');
+        const [name, setName] = React.useState('');
+        const [name, setName] = React.useState('');
         super(props);
         this.state={
-            StudentsList:[]
+            StudentsList:[],
+            studentName:"",
+            studentPassword:"",
+            studentGender:"",
+            studentDOB:"",
+            studentAddress:"",
+            studentSubjectEnrolled:""
         }
     }
     render(){
