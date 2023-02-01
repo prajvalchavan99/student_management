@@ -9,23 +9,120 @@
 .loginErrorMessage{
   font-size: 18px;
   color: red;
+  text-align: center;
+  margin: 0;
 }
 
 .logOutButton{
   float: right;
+    padding: 10px;
+    border: none;
+    min-width: 152px;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
 .mainDashboardConatainer{
   display: flex;
+  height: 100%;
 }
 
 .sidebar{
   max-width: 500px;
   border: 1px solid;
+  font-size: 18px;
+  padding: 5px;
+  border-spacing: 5px;
 }
+
+.sidebar input, select, textarea {
+    padding: 5px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid;
+}
+
 
 .studentsContainer{
   flex-grow: 1;
   flex-basis: 0;
+  padding: 20px;
+}
+
+.studentsContainer input{
+  padding: 5px;
+}
+
+.studentDataRows {
+    margin-top: 30px;
+    width:100%;
+    border-collapse: collapse;
+}
+
+.studentDataRows th,.studentDataRows td{
+  text-align: left;
+  border: 1px solid #eee;
+  padding: 10px;
+}
+
+.studentDataRows th{
+  background-color: #eee;
+}
+
+.loginTable {
+    margin: 30px  auto;
+    border-spacing: 20px;
+    font-size: 18px;
+    border: 1px solid;
+    box-shadow: 5px 6px 9px grey;
+}
+
+.loginTable button {
+    padding: 10px;
+    border: none;
+    min-width: 152px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.loginTable input{
+  padding: 5px;
+  border-radius: 3px;
+  outline: none;
   border: 1px solid;
+}
+
+.dashboardSection{
+  padding: 10px;
+}
+
+.studentdataTable{
+  border-spacing: 15px;
+}
+.studentdataTable button {
+    padding: 10px;
+    border: none;
+    min-width: 152px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.studentdataTable textarea{
+  width: 100%;
+  resize: none;
+}
+
+.studentDataRows>div {
+    border: 1px solid #eee;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.studentDataRows button{
+    padding: 10px;
+    border: none;
+    min-width: 152px;
+    border-radius: 5px;
+    font-size: 18px;
 }

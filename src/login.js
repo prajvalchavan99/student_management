@@ -14,49 +14,66 @@ class Login extends React.Component{
     render(){
         const usernameInputChange =(e)=>{
             this.setState({
-                loginTextbox:e.target.value
+                loginTextbox:e.target.value,
+                loginErrorMessage:""
             })
         }
         const passwordInputChange =(e)=>{
             this.setState({
-                passwordTextbox:e.target.value
+                passwordTextbox:e.target.value,
+                loginErrorMessage:""
             })
         }
 
-        const validateLogin=()=>{
-            console.log("gott");
-            if(this.state.loginTextbox === ""){
-                this.setState({
-                    loginErrorMessage:"Please enter Username"
-                })
-            }
-            else if(this.state.passwordTextbox === "")
+        const validateLogin=(e)=>{
+            if(this.state.loginTextbox === "admin" && this.state.passwordTextbox === "admin@123")
             {
+                this.props.handler();
                 this.setState({
-                    loginErrorMessage:"Please enter Password"
+                    loginErrorMessage:"",
+                    loginTextbox:"",
+                    passwordTextbox:""
                 })
+                e.preventDefault();
+                return false
             }
-            else if(this.state.loginTextbox !== "admin" && this.state.passwordTextbox !== "admin@123")
-            {
+            else{
                 this.setState({
                     loginErrorMessage:"Please enter valid Username and Password",
                     loginTextbox:"",
                     passwordTextbox:""
                 })
-            }
-            else{
-                this.props.handler()
+                e.preventDefault();
+                
             }
         }
         return <div>
-            login
-            <br/>
-            <label>Username</label><br/>
-            <input type="text" onChange={usernameInputChange} value={this.state.loginTextbox}/><br/><br/>
-            <label>Password</label><br/>
-            <input type="password" onChange={passwordInputChange} value={this.state.passwordTextbox}/><br/><br/>
-            <button onClick={validateLogin}>Login</button>
-            <p className="loginErrorMessage">{this.state.loginErrorMessage}</p>
+            <form onSubmit={validateLogin}>
+            <table className="loginTable">
+                <thead>
+                    <tr>
+                        <th colSpan="2">Login</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label>Username</label></td>
+                        <td><input type="text" onChange={usernameInputChange} value={this.state.loginTextbox} required/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password</label></td>
+                        <td><input type="password" onChange={passwordInputChange} value={this.state.passwordTextbox} required/></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit">Login</button></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colSpan="2"><p className="loginErrorMessage">{this.state.loginErrorMessage}</p></td>
+                    </tr>
+                </tbody>
+            </table>         
+            </form>
         </div>
     }
 }

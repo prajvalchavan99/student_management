@@ -2,6 +2,7 @@ import React from "react"
 import Login from "./login"
 import Dashboard from "./dashboard"
 import "./App.css"
+import logo from "./logo.png"
 
 class App extends React.Component {
   constructor(props){
@@ -25,7 +26,7 @@ class App extends React.Component {
   render() {
     return <div>
       <div className="navigationBar">
-        Student Management
+        <img src={logo} alt="Student Management" width="300px"/>
       </div>
       <div className="loginSection" style={{ display: this.state.isUserLoggedIn ? 'none': 'block'}}>
         <Login handler={this.loginHandler}/>
